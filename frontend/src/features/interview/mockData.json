@@ -1,0 +1,182 @@
+Mock data - replace with actual data from props or API
+  const report = {
+    matchScore: 85,
+    PreparationPlan: [
+      {
+        day: 1,
+        title: "Microservices Architecture Fundamentals",
+        focus: "Microservices Architecture",
+        severity: "low",
+        topics: [
+          "Understand monolithic vs microservices architecture",
+          "Learn service decomposition principles",
+          "Study inter-service communication (REST, gRPC, message queues)",
+          "Understand API Gateway pattern"
+        ],
+        resources: [
+          "Martin Fowler's Microservices article (martinfowler.com)",
+          "Node.js Microservices on YouTube"
+        ],
+        practiceTask: "Draw an architecture diagram breaking your past project into microservices"
+      },
+      {
+        day: 2,
+        title: "Docker Basics & Containerization",
+        focus: "Docker and Containerization",
+        severity: "medium",
+        topics: [
+          "Understand what Docker is and why it's used",
+          "Learn Docker images, containers, and volumes",
+          "Write a Dockerfile for a Node.js/Express app",
+          "Learn basic Docker CLI commands (build, run, stop, ps)"
+        ],
+        resources: [
+          "Docker official docs (docs.docker.com/get-started)",
+          "TechWorld with Nana - Docker Tutorial on YouTube"
+        ],
+        practiceTask: "Containerize one of your existing Node.js projects using Docker"
+      },
+      {
+        day: 3,
+        title: "Docker Compose & Multi-container Setup",
+        focus: "Docker and Containerization",
+        severity: "medium",
+        topics: [
+          "Learn Docker Compose for multi-container apps",
+          "Connect Node.js app + MongoDB/PostgreSQL using docker-compose.yml",
+          "Understand environment variables in Docker",
+          "Learn Docker networking basics"
+        ],
+        resources: [
+          "Docker Compose official docs",
+          "Fireship - Docker Compose in 12 minutes on YouTube"
+        ],
+        practiceTask: "Write a docker-compose.yml that spins up your app with a database together"
+      },
+      {
+        day: 4,
+        title: "CI/CD Pipeline Concepts",
+        focus: "CI/CD Pipelines",
+        severity: "medium",
+        topics: [
+          "Understand CI/CD concepts and why they matter",
+          "Learn the difference between Continuous Integration, Delivery, and Deployment",
+          "Study popular CI/CD tools: GitHub Actions, Jenkins, CircleCI",
+          "Understand pipeline stages: build, test, deploy"
+        ],
+        resources: [
+          "GitHub Actions official docs (docs.github.com/actions)",
+          "TechWorld with Nana - CI/CD Pipeline on YouTube"
+        ],
+        practiceTask: "Read through 2-3 real GitHub Actions workflow YAML files on open source repos"
+      },
+      {
+        day: 5,
+        title: "Build Your First CI/CD Pipeline with GitHub Actions",
+        focus: "CI/CD Pipelines",
+        severity: "medium",
+        topics: [
+          "Learn GitHub Actions workflow syntax (.github/workflows/)",
+          "Set up automated testing on every push",
+          "Build and push a Docker image automatically",
+          "Deploy to a server or cloud platform (Render / Railway / EC2)"
+        ],
+        resources: [
+          "GitHub Actions Node.js starter workflow",
+          "Fireship - GitHub Actions in 100 seconds on YouTube"
+        ],
+        practiceTask: "Create a GitHub Actions workflow that runs tests and builds Docker image on every push to main"
+      },
+      {
+        day: 6,
+        title: "Microservices — Deep Dive & Patterns",
+        focus: "Microservices Architecture",
+        severity: "low",
+        topics: [
+          "Study microservices design patterns (Saga, CQRS, Event Sourcing)",
+          "Learn service discovery and load balancing concepts",
+          "Understand fault tolerance (circuit breaker pattern)",
+          "Study how JWT auth works across microservices"
+        ],
+        resources: [
+          "microservices.io patterns website",
+          "Hussein Nasser - Microservices playlist on YouTube"
+        ],
+        practiceTask: "Build a simple 2-service Node.js app where Service A calls Service B via REST"
+      },
+      {
+        day: 7,
+        title: "Revision, Mock Interview & Weak Area Polish",
+        focus: "All skill gaps",
+        severity: "high",
+        topics: [
+          "Revise all 3 skill gap areas: Microservices, Docker, CI/CD",
+          "Re-read all technical and behavioral questions from the interview prep",
+          "Practice answering questions out loud (mock interview)",
+          "Review your JWT, REST API, and database answers"
+        ],
+        resources: [
+          "Your own notes from Day 1–6",
+          "Pramp or Interviewing.io for mock interview practice"
+        ],
+        practiceTask: "Do a full mock interview session — answer all 7 questions from the prep list without notes"
+      }
+    ],
+    technicalQuestions: [
+      {
+        question: "Can you describe your experience with building RESTful APIs? What are the key principles you follow?",
+        intention: "Assess understanding of API design best practices and experience in practical implementation.",
+        answer: "I have extensive experience building RESTful APIs using Node.js and Express.js. My key principles include using standard HTTP methods (GET, POST, PUT, DELETE), designing intuitive resource-based URLs, ensuring statelessness, and implementing proper status codes for responses. I focus on clear request/response structures, often using JSON, and consider versioning for future maintainability."
+      },
+      {
+        question: "Tell us about your experience with MongoDB and PostgreSQL. When would you choose one over the other?",
+        intention: "Evaluate database knowledge, understanding of different database paradigms (NoSQL vs. SQL), and decision-making skills.",
+        answer: "I have significant experience with both MongoDB (NoSQL) and PostgreSQL (SQL). I choose MongoDB for applications requiring flexible schemas, rapid development, and handling large volumes of unstructured or semi-structured data, like user profiles or logs. PostgreSQL is my go-to for applications demanding data integrity, complex transactions, and structured relationships, such as financial systems or inventory management, due to its ACID compliance and relational capabilities."
+      },
+      {
+        question: "How do you ensure the scalability and performance of your backend applications?",
+        intention: "Understand the candidate's approach to building performant and scalable systems.",
+        answer: "To ensure scalability and performance, I focus on several areas: optimizing database queries and designing efficient data models, implementing caching strategies where appropriate, designing stateless services to facilitate horizontal scaling, using asynchronous operations for I/O-bound tasks (e.g., with Node.js streams or worker threads), and monitoring application performance to identify bottlenecks. I also consider using message queues for decoupling services and handling background tasks."
+      },
+      {
+        question: "Explain your experience with JWT for authentication.",
+        intention: "Verify practical knowledge of authentication mechanisms.",
+        answer: "I have implemented JWT (JSON Web Tokens) for user authentication. The process typically involves a user logging in with credentials, which are then validated. Upon successful validation, the server generates a JWT containing user information (like user ID, roles) and a signature, and sends it back to the client. The client then includes this token in the Authorization header for subsequent requests. The server validates the token's signature and expiration before granting access to protected resources. I'm careful about storing secrets securely and setting appropriate expiration times."
+      }
+    ],
+    behavioralQuestions: [
+      {
+        question: "Describe a challenging technical problem you faced recently and how you solved it.",
+        intention: "Assess problem-solving skills, critical thinking, and technical approach.",
+        answer: "In a previous project, we were experiencing significant latency issues with a frequently accessed API endpoint. After investigation, I discovered that the database queries were inefficient and not utilizing indexes properly, compounded by a lack of caching for frequently requested, static data. I refactored the queries to be more performant, added composite indexes, and implemented a Redis cache for the most common responses. This reduced the average response time by over 70% and resolved the performance bottleneck."
+      },
+      {
+        question: "How do you collaborate with frontend developers and product teams?",
+        intention: "Evaluate teamwork, communication, and cross-functional collaboration skills.",
+        answer: "I believe clear communication and shared understanding are key. I actively participate in requirement discussions with product teams to ensure I fully grasp the 'why' behind features. With frontend developers, I ensure well-defined API contracts are established early on. I'm proactive in providing clear documentation, readily available for questions, and enjoy working together to resolve integration issues, ensuring a seamless user experience. I also value their feedback on API design from a consumption perspective."
+      },
+      {
+        question: "How do you stay updated with new backend technologies and trends?",
+        intention: "Understand the candidate's commitment to continuous learning and professional development.",
+        answer: "I actively follow industry blogs (like those from reputable tech companies and platforms), subscribe to relevant newsletters, and regularly browse resources like Hacker News and dev.to. I also experiment with new technologies through personal projects or by contributing to open source. Attending online webinars and occasional tech meetups (when available) also helps me stay informed about emerging trends and best practices."
+      }
+    ],
+    skillGap: [
+      {
+        skill: "Microservices Architecture",
+        severity: "low"
+      },
+      {
+        skill: "Docker and Containerization",
+        severity: "medium"
+      },
+      {
+        skill: "CI/CD Pipelines",
+        severity: "medium"
+      },
+      {
+        skill: "Kubernetes Orchestration",
+        severity: "high"
+      }
+    ]
+  }
