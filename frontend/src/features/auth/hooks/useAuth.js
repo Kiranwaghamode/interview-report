@@ -13,6 +13,7 @@ export const useAuth = () =>{
         try {
             const data = await login({email, password})
             setUser(data.user)
+            localStorage.setItem("token", data.token)
         } catch (error) {
             console.log("Error while login please check useAuth.js file")            
             alert("Invalid Credentials")
@@ -26,6 +27,7 @@ export const useAuth = () =>{
         try {
             const data = await register({username, email, password})
             setUser(data.user)
+            localStorage.setItem("token", data.token)
         } catch (error) {
             console.log("Error while register please check useAuth.js file")            
             
@@ -38,7 +40,10 @@ export const useAuth = () =>{
         setLoading(true)
         try {
             const data = await logout()
-            if(data) setUser(null)
+            if(data) {
+                setUser(null)
+                localStorage.removeItem("token")
+            }
         } catch (error) {
             console.log("Error while logout please check useAuth.js file")            
         }finally{
@@ -54,6 +59,7 @@ export const useAuth = () =>{
                 setUser(data.user)
             } catch (error) {
                 console.log("Error while fetching user data please check useAuth.js file")
+                localStorage.removeItem("token")
             }finally{
                 setLoading(false)
             }
