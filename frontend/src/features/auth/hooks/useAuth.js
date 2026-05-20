@@ -8,6 +8,30 @@ export const useAuth = () =>{
     const context = useContext(AuthContext)
     const { user, setUser, loading, setLoading } = context
 
+        useEffect(() => {
+        const token = localStorage.getItem("token")
+
+        const getAndSetUser = async()=>{
+            try {
+                const data = await getMe()
+                setUser(data.user)
+                setLoading(false)
+            } catch (error) {
+                console.log("Error while fetching user data please check useAuth.js file")
+                localStorage.removeItem("token")
+            }finally{
+                setLoading(false)
+            }
+        }
+    
+        if(token){
+            getAndSetUser()
+        }else{
+            setLoading(false)
+        }
+
+    }, [])
+
     const handleLogin = async({email, password})=>{
         try {
             const data = await login({email, password})
@@ -44,28 +68,7 @@ export const useAuth = () =>{
     }
 
 
-    useEffect(() => {
-        const token = localStorage.getItem("token")
 
-        const getAndSetUser = async()=>{
-            try {
-                const data = await getMe()
-                setUser(data.user)
-            } catch (error) {
-                console.log("Error while fetching user data please check useAuth.js file")
-                localStorage.removeItem("token")
-            }finally{
-                setLoading(false)
-            }
-        }
-    
-        if(token){
-            getAndSetUser()
-        }else{
-            setLoading(false)
-        }
-
-    }, [])
 
 
     return {

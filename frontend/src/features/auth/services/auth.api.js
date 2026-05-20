@@ -6,6 +6,14 @@ const api = axios.create({
     withCredentials: true
 })
 
+api.interceptors.request.use((config) => {
+    const token = localStorage.getItem("token")
+    if (token) {
+        config.headers.Authorization = `Bearer ${token}`
+    }
+    return config
+})
+
 export async function register({username, email, password}){
     try {
         const response = await api.post('/api/auth/register',{
@@ -51,10 +59,11 @@ export async function logout(){
 export async function getMe() {
     try {
         const response = await api.get("/api/auth/get-me")
+        console.log("get me response", response)
 
         return response.data
     } catch (error) {
-        console.log("error while getting me")
+        console.log("error while getting me", error)
         
     }
 }
