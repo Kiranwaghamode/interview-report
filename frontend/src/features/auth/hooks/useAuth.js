@@ -9,7 +9,6 @@ export const useAuth = () =>{
     const { user, setUser, loading, setLoading } = context
 
     const handleLogin = async({email, password})=>{
-        setLoading(true)
         try {
             const data = await login({email, password})
             setUser(data.user)
@@ -17,13 +16,10 @@ export const useAuth = () =>{
         } catch (error) {
             console.log("Error while login please check useAuth.js file")            
             alert("Invalid Credentials")
-        }finally{
-            setLoading(false)
         }
     }
 
     const handleRegister = async ({username, email, password})=>{
-        setLoading(true)
         try {
             const data = await register({username, email, password})
             setUser(data.user)
@@ -31,13 +27,10 @@ export const useAuth = () =>{
         } catch (error) {
             console.log("Error while register please check useAuth.js file")            
             
-        }finally{
-            setLoading(false)
         }
     }
 
     const handleLogout = async ()=>{
-        setLoading(true)
         try {
             const data = await logout()
             if(data) {
@@ -45,9 +38,8 @@ export const useAuth = () =>{
                 localStorage.removeItem("token")
             }
         } catch (error) {
-            console.log("Error while logout please check useAuth.js file")            
-        }finally{
-            setLoading(false)
+            console.log("Error while logout please check useAuth.js file") 
+
         }
     }
 
@@ -67,7 +59,11 @@ export const useAuth = () =>{
             }
         }
     
-    getAndSetUser()
+        if(token){
+            getAndSetUser()
+        }else{
+            setLoading(false)
+        }
 
     }, [])
 
